@@ -1,8 +1,8 @@
 package org.example;
 
 public class Radio {
-    public int currentVolume = 50;
-    public int currentStadion = 5;
+    private int currentVolume = 50;
+    private int currentStadion = 5;
 
     public int getCurrentVolume() {
         return currentVolume;

@@ -4,6 +4,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RadioTest {
     Radio radio = new Radio();
+
+    @Test
+    void notRightStation() {
+        int actual = radio.getCurrentStadion();
+        radio.setCurrentStadion(10);
+        radio.setCurrentStadion(-1);
+        assertEquals(actual, radio.getCurrentStadion());
+    }
+
     @Test
     void nextMakePlusOne() {
         radio.setCurrentStadion(3);
