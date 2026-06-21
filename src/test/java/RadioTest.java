@@ -22,10 +22,11 @@ public class RadioTest {
 
     @Test
     void nextMake0From9() {
-        radio.setCurrentStadion(8);
-        radio.next();
-        radio.next();
-        assertEquals(0, radio.getCurrentStadion());
+        Radio radio1 = new Radio(9);
+        radio1.setCurrentStadion(7);
+        radio1.next();
+        radio1.next();
+        assertEquals(0, radio1.getCurrentStadion());
     }
 
 
