@@ -2,7 +2,15 @@ package org.example;
 
 public class Radio {
     private int currentVolume = 50;
-    private int currentStadion = 5;
+    private int currentStadion = 0;
+    private int Stadion = 10;
+    public Radio(int Stadion) {
+        this.Stadion = Stadion;
+    }
+
+    public Radio() {
+
+    }
 
     public int getCurrentVolume() {
         return currentVolume;
@@ -17,13 +25,13 @@ public class Radio {
     }
 
     public void setCurrentStadion(int newStadion) {
-        if (newStadion <= 9 && newStadion >= 0) {
+        if (newStadion < (Stadion - 1) && newStadion >= 0) {
             currentStadion = newStadion;
         }
     }
 
     public void next() {
-        if (currentStadion < 9) {
+        if (currentStadion < (Stadion - 1)) {
             currentStadion++;
         } else {
             currentStadion = 0;

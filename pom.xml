@@ -31,18 +31,29 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.12</version>
                 <executions>
+                    <!-- 1. Готовит агент перед запуском тестов -->
                     <execution>
                         <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
+                        <!-- ДОБАВЛЕНО: Перенаправляем лог-файл в безопасное место на диск C -->
+                        <configuration>
+                            <destFile>C:/maven-repo/jacoco.exec</destFile>
+                        </configuration>
                     </execution>
+                    <!-- 2. Создает отчет после завершения тестов -->
                     <execution>
                         <id>generate-report</id>
                         <phase>test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
+                        <!-- ДОБАВЛЕНО: Указываем откуда брать лог и куда складывать готовый HTML -->
+                        <configuration>
+                            <dataFile>C:/maven-repo/jacoco.exec</dataFile>
+                            <outputDirectory>${project.build.directory}/site/jacoco</outputDirectory>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
